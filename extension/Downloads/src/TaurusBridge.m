@@ -5,7 +5,9 @@
 #import "DownloadCompatibility.h"
 #import "Diagnostics.h"
 #import "NativeOffline.h"
+#import "OfflineConfig.h"
 #import "OfflineDevices.h"
+#import "OfflineFlags.h"
 #import "TrackDownload.h"
 #import "TrackJournal.h"
 
@@ -61,3 +63,16 @@ __attribute__((visibility("default")))
     if (completion) completion(@{@"journal_summary": journal && SAPDiagnosticsEnabled() ? SAPJournalSummaryText() : @"Diagnostics are off; download history is not kept."});
 }
 @end
+
+// Install the Spotify hooks when the companion loads. Waiting until a user taps
+// Download misses SPTOfflineManagerImplementation's initializer, which is what
+// supplies the native manager wrapper used by playlist and track downloads.
+__attribute__((constructor)) static void SAPVitrineDownloadsLoad(void) {
+    @autoreleasepool {
+        SAPDiagnosticsInitialize();
+        SAPInstallOfflineFlags();
+        SAPInstallOfflineConfig();
+        SAPInstallNativeOffline();
+        SAPInstallTrackDownloader();
+    }
+}
