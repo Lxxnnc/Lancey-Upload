@@ -1,18 +1,3 @@
-// The areas the redesign stripped and SGRRepaint.x keeps transparent when Spotify repaints them, each
-// set by the part of the redesign that owns it.
-#import <UIKit/UIKit.h>
-
-extern __weak UIView *sgr_nowPlayingRoot;   // Redesigned/NowPlayingBar/NowPlayingBar.x, the bar
-// Every view in the bar Spotify painted as a card, learned from the album-color paint, which goes clear. The bar
-// makes the set and picks its card from it: in a Jam Spotify also paints the Jam strip, or a view around the
-// strip and the track.
-extern NSHashTable<UIView *> *sgr_nowPlayingPainted;
-extern __weak UIView *sgr_lyricsPageRoot;   // Redesigned/Lyrics/LyricsPage.x
-// Redesigned/Playlist/PlaylistField.x, the playlist page. Only the base surface Spotify paints the page,
-// its list and its rows with goes clear here: the artwork field is underneath, and the grays of a
-// placeholder or a badge are what still has to read against it.
-extern __weak UIView *sgr_playlistRoot;
-// Redesigned/Album/AlbumField.x, the album page, kept clear the same way and for the same reason.
-extern __weak UIView *sgr_albumRoot;
-// Redesigned/Artist/ArtistField.x, the artist page, kept clear the same way and for the same reason.
-extern __weak UIView *sgr_artistRoot;
+version https://git-lfs.github.com/spec/v1
+oid sha256:68f6615cc87b8135f6d1eda1568036faa823422cb5e2f83ae8184f47419fe710
+size 1257

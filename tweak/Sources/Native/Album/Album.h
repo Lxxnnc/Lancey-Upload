@@ -1,18 +1,3 @@
-// Album: parts of the album page hidden one switch each, and the cover behind its header (Album.x).
-// An unset switch is off.
-#import <UIKit/UIKit.h>
-
-#define SGKeyAlbumBackdrop @"spotifyglass.albumBackdrop"
-
-#define SGHideAlbumExplore @"spotifyglass.hide.albumExplore"
-#define SGHideAlbumAddTo @"spotifyglass.hide.albumAddTo"
-#define SGHideAlbumDownload @"spotifyglass.hide.albumDownload"
-#define SGHideAlbumMore @"spotifyglass.hide.albumMore"
-
-#define SGHideAlbumMoreBy @"spotifyglass.hide.albumMoreBy"
-#define SGHideAlbumVideos @"spotifyglass.hide.albumVideos"
-#define SGHideAlbumConcerts @"spotifyglass.hide.albumConcerts"
-#define SGHideAlbumMerch @"spotifyglass.hide.albumMerch"
-#define SGHideAlbumYouMightLike @"spotifyglass.hide.albumYouMightLike"
-
-UIViewController *SGAlbumSettingsPage(void);   // opened from the Home & Library page
+version https://git-lfs.github.com/spec/v1
+oid sha256:35ea9a3a0a8f759ccf66fb2640802118a1ef22ac4924f073a724ab168e5d9b7c
+size 862

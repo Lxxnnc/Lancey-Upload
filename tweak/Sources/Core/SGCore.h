@@ -1,10 +1,3 @@
-// What every source file of the mod builds on. Feature-specific API lives in the feature's own
-// header under Shared/, Native/ or Redesigned/, next to the keys it reads.
-#import "SGRuntime.h"
-#import "SGLog.h"
-#import "SGPrefs.h"
-#import "SGViewTree.h"
-#import "SGGlass.h"
-#import "SGBackdrop.h"
-#import "SGUIMode.h"
-#import "SGFlagForce.h"
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e1fdcb3c3bfac5d3b746a9f6e804b7203b91be127ea3a6f56db6078d24b9110
+size 353

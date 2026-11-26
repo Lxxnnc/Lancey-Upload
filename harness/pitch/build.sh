@@ -1,7 +1,3 @@
-#!/bin/sh
-# Builds the pitch harness for the Mac: SGTimePitch.m as the tweak compiles it, and main.m.
-set -e
-cd "$(dirname "$0")"
-mkdir -p build
-xcrun clang -fobjc-arc -O2 -I ../../tweak/Sources -framework Foundation -framework AudioToolbox \
-    main.m ../../tweak/Sources/Shared/Player/SGTimePitch.m -o build/pitch
+version https://git-lfs.github.com/spec/v1
+oid sha256:5370a7f0c599c11fa2d453f3b76ebe13ff9dec0fc9c1bd0d5fa936acbff21299
+size 324

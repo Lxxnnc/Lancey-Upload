@@ -1,5 +1,3 @@
-// Stands in for tweak/Sources/Core/SGCore.h in the download check: SGSingModel.m needs only SGLog, here printed
-// to stderr so the run shows it.
-#import <Foundation/Foundation.h>
-
-#define SGLog(fmt, ...) fprintf(stderr, "[spotifyglass] %s\n", [NSString stringWithFormat:(fmt), ##__VA_ARGS__].UTF8String)
+version https://git-lfs.github.com/spec/v1
+oid sha256:dee065b02fc9aa90ef2e135d7ecac72717daa5984c7346c45cc95c2bde24ccdc
+size 311

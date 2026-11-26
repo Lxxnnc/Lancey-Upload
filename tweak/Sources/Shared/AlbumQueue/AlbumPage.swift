@@ -1,16 +1,3 @@
-import Foundation
-
-// 9.1.90's CreativeWorkPageViewController keeps its identity here. Swift reflection reads the
-// named fields without depending on offsets or importing Spotify's modules. A changed shape yields nil.
-@objc(SGAlbumQueuePage)
-public final class SGAlbumQueuePage: NSObject {
-    @objc public static func albumURI(_ controller: AnyObject) -> String? {
-        var value: Any = controller
-        for field in ["template", "creativeWork", "uri"] {
-            guard let child = Mirror(reflecting: value).children.first(where: { $0.label == field }) else { return nil }
-            value = child.value
-        }
-        guard let url = value as? URL, url.absoluteString.hasPrefix("spotify:album:") else { return nil }
-        return url.absoluteString
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d43db0692e08cb9701fecbfc7b6050fa1713f707481446dbc42fa39ad3628996
+size 789

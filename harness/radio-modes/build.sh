@@ -1,8 +1,3 @@
-#!/bin/sh
-set -eu
-cd "$(dirname "$0")"
-mkdir -p build
-xcrun clang -fobjc-arc -O2 -Wall -Wextra -Werror -Wno-unused-parameter -I stub -I ../../tweak/Sources \
-    -framework Foundation check.m ../../tweak/Sources/Shared/AdBlock/RadioModes.m -o build/check
-build/check
-SG_RADIO_TEST_OFF=1 build/check
+version https://git-lfs.github.com/spec/v1
+oid sha256:6420410e2819495d8ceddbfcec5f900175e41640dc8dd6bbf7c53780f485a488
+size 307

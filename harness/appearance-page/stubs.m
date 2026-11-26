@@ -1,28 +1,3 @@
-// What the Logos files hold for the page: the accent colors as Accent.x and SGRAccent.x read them, and the
-// font choice as Fonts.x reads it.
-#import "Core/SGCore.h"
-#import "Native/Appearance/Appearance.h"
-#import "Redesigned/Kit/SGRAccent.h"
-#import "Shared/Fonts/Fonts.h"
-
-static NSInteger valid(NSInteger rgb) {
-    return rgb >= 0 && rgb <= 0xFFFFFF ? rgb : -1;
-}
-
-UIColor *SGAccentColor(void) { return valid(SGInt(SGKeyAccent, -1)) < 0 ? nil : UIColor.redColor; }
-NSInteger SGAccentRGB(void) { NSInteger rgb = valid(SGInt(SGKeyAccent, -1)); return rgb < 0 ? SGSpotifyGreen : rgb; }
-UIColor *SGRAccentColor(void) { return valid(SGInt(SGRKeyAccent, SGRDefaultAccent)) < 0 ? nil : UIColor.redColor; }
-NSInteger SGRAccentRGB(void) { NSInteger rgb = valid(SGInt(SGRKeyAccent, SGRDefaultAccent)); return rgb < 0 ? SGSpotifyGreen : rgb; }
-
-SGAppFont SGAppFontChosen(void) {
-    NSInteger font = SGInt(SGKeyAppFont, SGAppFontSpotify);
-    return font >= SGAppFontSpotify && font <= SGAppFontFamily ? font : SGAppFontSpotify;
-}
-
-NSArray<NSString *> *SGAppFontNames(void) {
-    return @[@"Default", @"San Francisco", @"SF Rounded", @"New York", @"SF Mono"];
-}
-
-NSArray<NSString *> *SGAppFontFamilies(void) {
-    return @[@"Avenir Next", @"Georgia"];
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:30af799359103999107405031abbdfc4ebdcbbffa727f55b01ba36314d1fb2a3
+size 1278

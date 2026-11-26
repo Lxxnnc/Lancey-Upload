@@ -1,11 +1,3 @@
-// Private UIKit the SDK does not declare.
-#import <UIKit/UIKit.h>
-#import <objc/runtime.h>
-
-@interface UIView (SGPrivate)
-- (NSString *)recursiveDescription;
-@end
-
-@interface UIViewController (SGPrivate)
-- (NSString *)_printHierarchy;
-@end
+version https://git-lfs.github.com/spec/v1
+oid sha256:65440d1b93c44e9a78459d32d266f004a20d9ebf6887d5a0d496d0831708a8c2
+size 252

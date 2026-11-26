@@ -1,7 +1,3 @@
-// The native look's now playing bar: Spotify's own bar with its device button hidden on request
-// (NowPlayingBar.x), and the bar's flags (NowPlayingBarSettings.m).
-#import <UIKit/UIKit.h>
-
-#define SGHideBarConnect @"spotifyglass.hide.barConnect"   // the device button in the now playing bar
-
-UIViewController *SGNowPlayingBarSettingsPage(void);
+version https://git-lfs.github.com/spec/v1
+oid sha256:737f82a7e1ad1277e4f2d0de056b2fca1b3d1d11f71544680b431e550e64564f
+size 355

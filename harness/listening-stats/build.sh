@@ -1,7 +1,3 @@
-#!/bin/sh
-# Builds the listening stats harness for the Mac: SGPlayLog.m as the tweak compiles it, and main.m.
-set -e
-cd "$(dirname "$0")"
-mkdir -p build
-xcrun clang -fobjc-arc -O2 -Wall -Werror -I ../../tweak/Sources -framework Foundation \
-    main.m ../../tweak/Sources/Shared/ListeningStats/SGPlayLog.m -o build/listening-stats
+version https://git-lfs.github.com/spec/v1
+oid sha256:7adfab37b71c44dc2cb95e955b2b2144a0f48468603d96fe220c197815105e20
+size 338

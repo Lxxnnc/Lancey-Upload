@@ -1,23 +1,3 @@
-// Debug builds only: the player the driver reads its state from (Driver.m).
-#import "Core/SGCore.h"
-#import "Diagnostics.h"
-#import "Headers/SPTPlayer.h"
-
-static __weak id sg_player;
-
-id SGDiagnosticsPlayer(void) {
-    return sg_player;
-}
-
-%hook SPTEsperantoPlayer
-- (id)state {
-    sg_player = self;
-    return %orig;
-}
-%end
-
-%ctor {
-    if (!SGIsDebugBuild()) return;
-    %init;
-    SGRequireClasses(@[@"SPTEsperantoPlayer"]);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0dd36fa90faea73f244c7078e0fd464e5f2f1479b5a4dc5bd967d3cab84c7f5b
+size 455
