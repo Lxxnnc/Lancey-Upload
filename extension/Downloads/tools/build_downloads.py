@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 UUID = bytes.fromhex("fbce22c17e1b3e0d9be866ff9291943e")
 UNSUPPORTED = 3
 SOURCE_FILES = [
-    "ProbeStubs.c", "Diagnostics.m", "Localization.m", "OfflineFlags.m", "WireProto.m",
+    "ProbeStubs.c", "ProbeStubs.m", "Diagnostics.m", "Localization.m", "OfflineFlags.m", "WireProto.m",
     "OfflineConfig.m", "TrackJournal.m", "NativeErrorLog.m", "PlayerTrace.m", "NativeOffline.m",
     "TrackDownload.m", "TaurusBridge.m", "AlbumMetadata.m", "SupportLog.m", "DownloadCompatibility.m",
     "OfflineDevices.m", "DiagnosticTrace.m", "TracePlatform.m", "NativeKeyTrace.m",
