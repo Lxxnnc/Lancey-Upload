@@ -371,10 +371,8 @@ UIViewController *SGDownloadsSettingsPage(void) {
         NSInteger configured = [keyMode()[@"configured_mode"] respondsToSelector:@selector(integerValue)] ? [keyMode()[@"configured_mode"] integerValue] : -1;
         return workingOr(^NSString * { return configured < 0 ? @"?" : configured == 0 ? @"0" : @"1"; });
     }, ^{ if (!busy) requestModeTapped(); }), @"arrow.triangle.2.circlepath", nil);
-    mode.refreshOn = SGDownloadsDidChangeNotification;
     SGModRow *quotas = symbolRow(SGStatActionRow(@"Refresh quotas and licenses", @"Read only · nothing is reset", ^NSString * { return busy ? @"Working…" : @""; }, ^{ refreshQuotas(); }),
                                  @"arrow.clockwise", nil);
-    quotas.refreshOn = SGDownloadsDidChangeNotification;
     SGModRow *slots = symbolRow(SGActionRow(@"Manage offline device slots", @"Troubleshooting only · may disable old copies' offline access", ^{ manageSlots(); }),
                                 @"externaldrive.badge.person.crop", UIColor.systemOrangeColor);
     SGModRow *enable = symbolRow(SGActionRow(@"Enable offline listening on this copy", @"Uses one available device-license slot", ^{ enableOffline(); }),
