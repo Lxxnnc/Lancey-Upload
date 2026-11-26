@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a0ac2c9d906edf8761662969d4564b269d99ebdc21bdc848b0ef2862a4766e7a
-size 457
+#pragma once
+#import <Foundation/Foundation.h>
+
+// Returns the album and every disc/track in Spotify's metadata order.
+// The callback runs on the main queue. No account token or key is persisted.
+void SAPFetchAlbumMetadata(NSString *albumURI,
+                            void (^completion)(NSDictionary *album, NSString *error));
+
+// Pure protobuf parser, also used by host tests.
+NSDictionary *SAPParseAlbumMetadata(NSData *response, NSString *albumURI);

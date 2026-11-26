@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c892bc6f7a799b765ebaa9d521a194e7616c5caa02214c6377bdd18c7e99bea7
-size 371
+#pragma once
+#import <Foundation/Foundation.h>
+void SAPRefreshDownloadCompatibility(void (^completion)(NSDictionary *));
+NSDictionary *SAPDownloadCompatibilityReport(void);
+// A fresh complete read permits an experiment, never guarantees downloading.
+NSString *SAPModeChangeBlockReason(NSDictionary *report);
+NSString *SAPDownloadCompatibilityText(NSDictionary *report);

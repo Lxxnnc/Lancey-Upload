@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:841b7deb03adf7bde1748279940d986f1155e6a8f90918c3dac49e06bcb66a89
-size 498
+// Spotify's glyph view, from SpotifyShared.framework. It bakes its color into what it draws, so
+// tintColor never reaches it and setForegroundColor: is the way in.
+#import <UIKit/UIKit.h>
+
+@interface SPTEncoreIconView : UIView
+- (instancetype)initWithIcon:(id)icon;
+- (void)setForegroundColor:(UIColor *)color;
+- (void)setActiveForegroundColor:(UIColor *)color;
+- (void)setIsActive:(BOOL)active;
+- (BOOL)isActive;
+@end
+
+@interface NSObject (SPTEncoreIcon)
+- (NSString *)name;
+@end

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b0df01e1b86810f40986b85a9097eb22defa74010cde4eae8bfac3a9a4e77051
-size 756
+#pragma once
+#include "AudioProbe.h"
+
+// Also used by the host integration tests; never read from the audio thread.
+typedef struct {
+    OSStatus (*set)(AudioUnit, AudioUnitPropertyID, AudioUnitScope, AudioUnitElement, const void *, UInt32);
+    OSStatus (*get)(AudioUnit, AudioUnitPropertyID, AudioUnitScope, AudioUnitElement, void *, UInt32 *);
+    OSStatus (*start)(AudioUnit);
+    OSStatus (*stop)(AudioUnit);
+    OSStatus (*dispose)(AudioComponentInstance);
+    OSStatus (*describe)(AudioUnit, AudioComponentDescription *);
+} SAPBackend;
+
+#ifdef SAP_TESTING
+void SAPTestUseBackend(SAPBackend backend);
+#endif
+
+// Copies immutable registration metadata for manual source diagnostics.
+bool SAPCopyActiveNativeCallback(uint64_t *proc, uint64_t *refcon);

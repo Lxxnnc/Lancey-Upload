@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b2a0b8a1f13b8969e23b7279ef5c86f12fb9c5caed9d3922b91339cdcab0081
-size 583
+// The line being sung in place of the artist in the system's now playing: lock screen, Dynamic Island,
+// Control Center, CarPlay. There is a Live Activity for it too (Shared/LiveActivity). The
+// lines and the clock come from Karaoke.
+#import <Foundation/Foundation.h>
+
+#define SGKeyLockScreenLyrics @"spotifyglass.lockScreenLyrics"
+
+// Moving artwork with lyrics: the moving artwork clip found for the track `uri`, a local file, which
+// LyricsArtwork.x draws the lines over while that track plays. Main queue.
+void SGLyricsArtworkSetMotion(NSString *uri, NSURL *file);

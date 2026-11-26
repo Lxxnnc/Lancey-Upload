@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e1eb2787717d28f7c8bd604039048b5105a49f0301ddbc2b2d90a8a59b6414e1
-size 329
+#pragma once
+#import <Foundation/Foundation.h>
+void SAPInstallOfflineConfig(void);
+NSDictionary *SAPOfflineConfigReport(void);
+// Pure transform, also exercised with captured-schema fixtures on the host.
+NSData *SAPRewriteOfflineConfig(NSData *data, BOOL bootstrap);
+BOOL SAPPrepareCachedOfflineConfig(NSUserDefaults *defaults);

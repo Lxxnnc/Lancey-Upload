@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e5d5641fcb21a2cb8f2fcdd4546f077277646511087750557839da8003998b07
-size 407
+#!/bin/sh
+# Builds the album credits check for the Mac: Redesigned/Album/AlbumCredits.m as the tweak compiles it.
+set -e
+cd "$(dirname "$0")"
+SRC=../../tweak/Sources
+mkdir -p build
+xcrun clang -fobjc-arc -O0 -g -Wall -Werror -target arm64-apple-macos13.0 \
+    check.m "$SRC"/Redesigned/Album/AlbumCredits.m -framework Foundation -o build/album-credits-check
+echo "built build/album-credits-check"

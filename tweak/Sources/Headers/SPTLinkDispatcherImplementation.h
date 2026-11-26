@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee3e7defcd95a9166c7dd8a0ccdec969420cc1d08c02f8824fe52a9c6cdfda71
-size 320
+// Spotify's link dispatcher, a singleton the app builds at startup; the route the app itself takes
+// for a link it opens.
+#import <Foundation/Foundation.h>
+
+@interface SPTLinkDispatcherImplementation : NSObject
+- (void)navigateToURI:(NSURL *)uri options:(long long)options interactionID:(id)interactionID;
+@end

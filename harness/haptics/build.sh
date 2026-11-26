@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6534eba8b7ad0597bfb1072da44811daf2f5f572d20d8417ab864c66130138e
-size 706
+#!/bin/sh
+# Builds the Music Haptics harnesses for the Mac: SGMusicAnalyzer.m as the tweak compiles it under main.m, and
+# Native iOS's pure steps (SGHapticTrack.m and the protobuf reader) under track.m.
+set -e
+cd "$(dirname "$0")"
+mkdir -p build
+xcrun clang -fobjc-arc -O2 -Wall -Werror -I ../../tweak/Sources -framework Foundation -framework AudioToolbox \
+    main.m ../../tweak/Sources/Shared/Haptics/SGMusicAnalyzer.m -o build/haptics
+xcrun clang -fobjc-arc -O2 -Wall -Werror -I ../../tweak/Sources -framework Foundation \
+    track.m ../../tweak/Sources/Shared/Haptics/SGHapticTrack.m ../../tweak/Sources/Shared/AdBlock/Protobuf.m -o build/track
+echo "built build/haptics and build/track"

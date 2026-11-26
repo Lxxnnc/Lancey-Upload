@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9806461012e190aa4bc20200099f6bc58a77eed72d860200781bde0c88bbc6bd
-size 748
+#pragma once
+#import <Foundation/Foundation.h>
+
+void SAPInstallNativeOffline(void);
+NSDictionary *SAPKeyRequestModeReport(void);
+void SAPSetKeyRequestMode(NSInteger mode, void (^completion)(BOOL changed, NSString *reason));
+void SAPReadNativeOfflineQuota(void (^completion)(NSDictionary *));
+void SAPPrepareNativeOffline(BOOL (^stillRequested)(void), void (^completion)(BOOL, NSString *));
+NSDictionary *SAPNativeOfflineReport(void);
+void SAPSampleNativeOffline(void);
+void SAPReadNativeTrackState(NSString *uri);
+#ifdef SAP_RUNTIME_TESTING
+id SAPNativeOfflineWrapperForTesting(void);
+void SAPNativeOfflineSnapshotForTesting(void (^completion)(NSDictionary *));
+void SAPNativeOfflineZeroUpdateForTesting(void (^completion)(NSDictionary *));
+#endif

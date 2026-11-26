@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2edc471d1dcc96b98a1670c0d4d49180100c23d117865920309bd008effaa31e
-size 313
+#pragma once
+#import <Foundation/Foundation.h>
+
+// Snapshot of keys observed from Spotify's own offline-key completion.
+// Key bytes are kept only in process memory and never included in reports.
+void SAPWithObservedAudioKey(NSData *fileID, void (^block)(NSData *key));
+NSUInteger SAPObservedAudioKeyCount(void);

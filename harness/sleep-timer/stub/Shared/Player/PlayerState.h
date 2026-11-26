@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d742e433be9e06f5724e62435843f440e8bd5cfe130374652d4f1ae19bb9d4e
-size 447
+// The calls SleepTimer.m and SpotifySleepTimer.m make of PlayerState.h, without UIKit; main.m answers them.
+#import <Foundation/Foundation.h>
+#import "Headers/SPTPlayer.h"
+NSString *SGURIString(id uri);
+@protocol SGPlayerStateObserver <NSObject>
+- (void)playerStateDidChange:(SPTPlayerState *)state;
+@optional
+- (void)playerStateDidReport:(SPTPlayerState *)state;
+@end
+void SGAddPlayerStateObserver(id<SGPlayerStateObserver> observer);

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fa6d79e432b9606d50f17fde5d342b7cd920023ff60e34a550635940947866c4
-size 296
+// Settings of the player that hold for either look.
+#import <UIKit/UIKit.h>
+
+UIViewController *SGLockScreenWidgetPage(void);
+
+// Switch to video hidden from the player under either look (VideoSwitch.x), off until switched on.
+#define SGKeyHideVideoSwitch @"spotifyglass.hide.videoSwitch"

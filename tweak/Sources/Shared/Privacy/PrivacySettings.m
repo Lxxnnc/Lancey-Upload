@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f24e9a2748880ba7b60c2989a6b0c8fb380e98a4495da4adcfa59ef3082818c
-size 1069
+#import "Settings/SGModPage.h"
+#import "Privacy.h"
+
+SGModSection *SGPrivacySection(void) {
+    return SGSection(@"Privacy", @[
+        SGWithSymbol(SGSwitchRow(@"Block telemetry", @"Spotify's own events still go out, since Recents is built from them", SGKeyBlockTelemetry), @"antenna.radiowaves.left.and.right.slash"),
+        SGWithSymbol(SGSwitchRow(@"Clean shared links", @"Takes the tracking (si, utm) off the links you copy or share", SGKeyCleanLinks), @"link"),
+    ]);
+}
+
+SGModSection *SGPrivacyCountersSection(void) {
+    NSMutableArray<SGModRow *> *counts = [NSMutableArray array];
+    for (NSString *label in SGBlockedLabels()) {
+        [counts addObject:SGStatRow(label, ^NSString *{
+            return @(SGBlockedCount(label)).stringValue;
+        })];
+    }
+    [counts addObject:SGStatRow(@"Total", ^NSString *{
+        return @(SGBlockedCount(nil)).stringValue;
+    })];
+    [counts addObject:SGActionRow(@"Reset the telemetry counters", nil, ^{ SGResetBlocked(); })];
+    return SGSection(@"Telemetry blocked so far", counts);
+}

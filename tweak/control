@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b57be8d2307c426e560766710b99dd8178ddb59f1dd1945d0910ad3481c3fe91
-size 177
+Package: com.vitrine.tweak
+Name: Vitrine
+Architecture: iphoneos-arm
+Description: Liquid Glass for the Spotify iOS app
+Maintainer: Vitrine
+Author: Vitrine
+Section: Tweaks

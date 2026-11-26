@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:44f5e24f4164dfbd3fe794055932a468602f2b092f91c9daea09f0036c2e2598
-size 588
+// The native look's lyrics for a local file with an imported LRC file linked to it (Shared/LocalFiles/
+// LocalLyrics.h): Spotify turns its own lyrics off for local files before it asks its lyrics service,
+// so the player's footer gets a button of the mod's that opens a page of its own.
+//
+//     LocalLyricsButton.x   the button on the footer, and has_lyrics for a linked local file
+//     LocalLyricsPage.m     the page: the lines on black, following the song
+#import <UIKit/UIKit.h>
+
+// The page for whatever plays, full screen.
+UIViewController *SGLocalLyricsPage(void);

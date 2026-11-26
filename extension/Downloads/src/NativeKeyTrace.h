@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a7c5f407337a5a397aa23fbfd604f0fbc607ca06356287a73151373c4112489
-size 353
+#pragma once
+#import <Foundation/Foundation.h>
+NSDictionary *SAPNativeKeyTraceReport(void);
+void SAPNativeKeyTraceResetSegment(void);
+void SAPNativeKeyTraceObserveMetadata(NSString *service,NSString *method,NSString *requestURI,NSData *response);
+#ifdef SAP_TESTING
+void SAPTraceNativeBoundaryForTesting(unsigned kind,const uint64_t *registers);
+#endif

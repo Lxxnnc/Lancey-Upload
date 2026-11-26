@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b0334e90b0b7133998a0a1d6d6833ef0e8c9d6b3e1df5f389bfa17130f6ba7a2
-size 388
+#!/bin/sh
+# Builds the Visualizer's spectrum check for the Mac: SGRSpectrum.m as the tweak compiles it, under main.m.
+set -e
+cd "$(dirname "$0")"
+mkdir -p build
+xcrun clang -fobjc-arc -O2 -Wall -Werror -I ../../tweak/Sources -framework Foundation -framework Accelerate \
+    main.m ../../tweak/Sources/Redesigned/Player/SGRSpectrum.m -o build/spectrum
+echo "built build/spectrum"

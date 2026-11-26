@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81807ad3e7c5afefe338a2d27532c1f6b981920f2d2209da64aa8b9cb1cf1bb3
-size 247
+#pragma once
+#import <Foundation/Foundation.h>
+
+// Pixie's interface is English-only, regardless of Spotify's preferred language.
+// Keep the paired-string API compatible with existing callers.
+NSString *SAPL(NSString *russian,NSString *english);

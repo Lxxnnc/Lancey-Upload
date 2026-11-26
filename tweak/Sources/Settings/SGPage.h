@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0ce106c6b164d164fd2d5bd17e2161175a526fe8f234a93dd75e408b22cb1d62
-size 564
+// The base of every page of the mod's, pushable onto Spotify's own navigation stack.
+#import <UIKit/UIKit.h>
+
+@interface SGPage : UITableViewController
+@end
+
+// Registers SGPage as one of Spotify's pages; called once, from the settings hook's %ctor.
+void SGRegisterPages(void);
+// Pushes the page if it can go on Spotify's stack, presents it otherwise.
+void SGShowPage(UIViewController *owner, UIViewController *page);
+// Mod Settings, pushed onto the selected tab's stack; `source` is any view on the tab bar.
+void SGOpenModSettings(UIView *source);

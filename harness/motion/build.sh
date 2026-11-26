@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f7a23d73659e43bb4d51f565dc02b01ac8cb1cbc59db9c0ddca18e522455755
-size 508
+#!/bin/sh
+# Builds the moving artwork harness for the Mac: SGMotionClip.m as the tweak compiles it, with the
+# protobuf reader it uses, and main.m.
+set -e
+cd "$(dirname "$0")"
+mkdir -p build
+xcrun clang -fobjc-arc -O2 -I ../../tweak/Sources \
+    -framework Foundation -framework AVFoundation -framework CoreMedia -framework CoreVideo -framework CoreGraphics \
+    main.m ../../tweak/Sources/Shared/AnimatedArtwork/SGMotionClip.m ../../tweak/Sources/Shared/AdBlock/Protobuf.m \
+    -o build/motion

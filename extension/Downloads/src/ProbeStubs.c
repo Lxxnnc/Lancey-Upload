@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4ffc52d461ca6395eff0f58c6c1c80b85c8b49fa92e65a0768a3969accc10aa
-size 944
+// What the audio probe used to provide, answered "nothing observed".
+//
+// Vitrine keeps its own audio pipeline (Shared/Audio/SGAudioPipeline.x rebinds the same AudioToolbox imports the
+// probe redirected), so the probe's import redirect, AVFoundation hooks and WAV capture are not part of this
+// build. The download engine never depended on them; only the diagnostics text read their counters.
+#include <string.h>
+#include "AudioProbe.h"
+#include "SourceGraph.h"
+
+SAP_EXPORT void SpotifyAudioProbeInitialize(void) {}
+SAP_EXPORT void SpotifyAudioProbeSetObserver(SAPPCMObserver observer) { (void)observer; }
+SAP_EXPORT void SpotifyAudioProbeReadSnapshot(SAPSnapshot *snapshot) { if (snapshot) memset(snapshot, 0, sizeof(*snapshot)); }
+SAP_EXPORT bool SpotifyAudioProbeMuteForSeconds(double seconds) { (void)seconds; return false; }
+void SAPReadSourceGraph(SAPSourceGraph *out) { if (out) { memset(out, 0, sizeof(*out)); out->status = 1; } }

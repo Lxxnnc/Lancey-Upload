@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:57d4a56333011a30989f0a30bf2c2bcec199c89d664c7951b3cd68f9716639b0
-size 797
+// Keys the mod adds to Spotify's now playing info, under one hook of the setter: the lock screen's moving
+// artwork, the song's ISRC for iOS's Music Haptics. Each feature sets its own keys for one title, and
+// they ride on every dictionary Spotify sends for that title until the feature sets others.
+//
+// Lock screen lyrics hooks the same setter and keeps Spotify's own dictionary behind the getter, so
+// nothing here stores Spotify's: when extras change, or are cleared while the info still carries them,
+// the info the getter gives back is sent again without the old ones and with its clock moved on.
+#import <Foundation/Foundation.h>
+
+// `extras` nil or empty clears the owner's. Main thread.
+void SGNowPlayingSetExtras(NSString *owner, NSDictionary *extras, NSString *title);

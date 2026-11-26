@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b015f70be5c02e3a984d4f07f573ab38126f0ae24ed552b14726aeb8c0265a4a
-size 230
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+[*.{yml,yaml,json}]
+indent_size = 2

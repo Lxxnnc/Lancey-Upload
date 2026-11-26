@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9661b7a53ed90d4f7796572c3957c1b2ac65904d5702ebaa9ec20eb9697f6ee1
-size 523
+// The areas the native look's tweaks stripped and Repaint.x keeps transparent when Spotify repaints
+// them, each set by the tweak that owns it.
+#import <UIKit/UIKit.h>
+
+extern __weak UIView *sg_lyricsCardRoot;    // Native/Player/LyricsCard.x
+extern __weak UIView *sg_lyricsPageRoot;    // Native/Lyrics/LyricsPage.x
+extern __weak UIView *sg_homeRoot;          // Native/Home/HomeGradient.x, the base surface only
+extern __weak UIView *sg_npvBackdropRoot;   // Native/Player/Player.x, the plane behind the player

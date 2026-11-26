@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e0a151233ca9013e5671e396241e3b75fd952d7e336d70f6d802f86c42f85bfb
-size 1254
+// The karaoke view goes over the lyrics part of the full screen lyrics page (trees/lyrics.txt:
+// Lyrics_FullscreenElementPageImpl.LyricsView, between the header and the controls), so Spotify's
+// header, close button and controls stay working. It is laid over rather than swapped in: Spotify's
+// list keeps running underneath and comes back the moment a track has no synced lyrics.
+#import "Core/SGCore.h"
+#import "SGRKaraokeView.h"
+
+static char kKaraokeKey;
+
+%hook _TtC32Lyrics_FullscreenElementPageImpl10LyricsView
+- (void)layoutSubviews {
+    %orig;
+    UIView *host = (UIView *)self;
+    SGRKaraokeView *view = objc_getAssociatedObject(host, &kKaraokeKey);
+    if (!view) {
+        SGLog(@"karaoke: page opened, playing %@", SGKaraokePlayingTrack());
+        view = [[SGRKaraokeView alloc] initWithFrame:host.bounds];
+        objc_setAssociatedObject(host, &kKaraokeKey, view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    if (view.superview == host) [host bringSubviewToFront:view];
+    else [host addSubview:view];
+    view.frame = host.bounds;
+    [view syncSiblings];
+}
+%end
+
+%ctor {
+    if (!SGRedesignedUI()) return;
+    %init;
+    SGRequireClasses(@[@"_TtC32Lyrics_FullscreenElementPageImpl10LyricsView"]);
+}

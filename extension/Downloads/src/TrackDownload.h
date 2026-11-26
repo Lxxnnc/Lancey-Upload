@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce29fc00a5cd2bbd5c533e37d62f14b78a542037e3d1d7fbb136db5985affd46
-size 989
+#pragma once
+#import <Foundation/Foundation.h>
+void SAPInstallTrackDownloader(void);
+void SAPDownloadCurrentTrack(void (^message)(NSString *));
+void SAPDownloadCurrentAlbum(void (^message)(NSString *));
+void SAPCancelTrackDownload(void);
+void SAPVerifyCurrentTrack(void (^message)(NSString *));
+BOOL SAPTrackDownloadActive(void);
+NSString *SAPTrackDownloadSummary(void);
+NSDictionary *SAPTrackDownloadReport(void);
+NSDictionary *SAPTrackDownloadReportWithJournal(NSDictionary *journalReport);
+// Uses Spotify's already authenticated in-process transport. The payload is
+// read-only and the callback is delivered on the main queue.
+void SAPCallReadOnlyService(NSString *serviceName, NSString *method, NSData *payload,
+                            void (^completion)(NSData *response, NSString *error));
+// Explicit user command. One verified endpoint, one send, no replay on timeout.
+void SAPCallOfflineCommandOnce(NSString *method,NSData *payload,void (^completion)(NSData *,NSString *));

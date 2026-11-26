@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5ea2d8a722c1ac33d25f1baf054cb59eacf9a55d18fb2ed4ff3799b490cf4766
-size 534
+#pragma once
+#import <Foundation/Foundation.h>
+// Bounded protobuf wire reader. Unknown fields retain their original bytes.
+NSArray<NSDictionary *> *SAPProtoFields(NSData *data);
+NSData *SAPProtoBytes(unsigned number, NSData *value);
+NSData *SAPProtoInteger(unsigned number, uint64_t value);
+uint64_t SAPProtoNumber(NSArray<NSDictionary *> *fields, unsigned number, uint64_t fallback);
+NSData *SAPProtoData(NSArray<NSDictionary *> *fields, unsigned number);
+NSString *SAPProtoString(NSArray<NSDictionary *> *fields, unsigned number);
